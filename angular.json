@@ -11,6 +11,13 @@
       "prefix": "app",
       "architect": {
         "build": {
+          "styles": [
+            "src/styles.css",
+            "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+          ],
+          "scripts": [
+            "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+          ],
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/notea",
@@ -94,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "fa1ea9c3-ab29-405c-988a-101e457bfd76"
   }
 }
