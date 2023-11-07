@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,14 +9,18 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent {
-
+  
   @Input('clase') clase:string = 'btn btn-primary';
   @Input('texto') texto:string = 'Botón';
-  constructor(){
+  @Output() action = new EventEmitter();
 
-  }
+  constructor() { }
 
   ngOnInit():void{
 
+  }
+  
+  public alerta() {
+    alert ("Alerta Roja");
   }
 }
