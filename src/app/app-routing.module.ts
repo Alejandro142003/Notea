@@ -15,7 +15,7 @@ const routes: Routes = [
     {path:'**', redirectTo:'a/suba', pathMatch:'full'}
   ],
   canActivate:[guardGuard]},
-  {path:'b/:id/:page',component:BComponent},
+  {path:'b/:id/:page',loadComponent:() => import('./pages/b/b.component').then((m) => m.BComponent)},
   {path:'',redirectTo:'/a',pathMatch:'full'},
   {path:'**', component:Error404Component}
 ];
