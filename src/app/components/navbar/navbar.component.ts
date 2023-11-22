@@ -2,17 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-suba',
+  selector: 'app-navbar',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <p>
-      suba works!
-    </p>
-  `,
-  styles: [
-  ]
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class SubaComponent {
+export class NavbarComponent {
 
 }
