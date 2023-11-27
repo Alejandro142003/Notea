@@ -13,10 +13,22 @@ import {
 } from '@abacritt/angularx-social-login';
 import { LoginService } from './services/login.service';
 import { GoogleSigninButtonDirective } from '@abacritt/angularx-social-login';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, ButtonComponent, NavbarComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ButtonComponent,
+    NavbarComponent,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+  ],
   providers: [
     NotesService,
     {
