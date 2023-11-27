@@ -6,13 +6,8 @@ import { Router } from '@angular/router';
   selector: 'app-error404',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <p (click)='inicio()'>
-      error404 works!
-    </p>
-  `,
-  styles: [
-  ]
+  templateUrl: './error404.component.html',
+  styleUrls: ['./error404.component.css']
 })
 export class Error404Component implements OnInit {
   constructor(private router:Router) {}

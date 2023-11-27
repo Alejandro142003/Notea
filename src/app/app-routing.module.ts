@@ -1,22 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Error404Component } from './pages/error404.component';
-import { InicioComponent } from './components/inicio/inicio.component';
-import { NewComponent } from './components/new/new.component';
-import { AboutComponent } from './components/about/about.component';
+import { NotesComponent } from './pages/notes/notes.component';
+import { NewComponent } from './pages/new/new.component';
+import { LoginComponent } from './pages/login/login.component';
+import { Error404Component } from './pages/error404/error404.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
-  
-  {path:'', component:InicioComponent},
-  {path:'new', component:NewComponent},
-  {path:'about', component:AboutComponent},
-  {path:'',redirectTo:'',pathMatch:'full'},
-  {path:'**', component:Error404Component}
+  { path: 'home', component: NotesComponent, canActivate: [LoginGuard] },
+  { path: 'new', component: NewComponent, canActivate: [LoginGuard] },
+  {
+    path: 'about',
+    loadComponent: () =>
+      import('./pages/about/about.component').then((c) => c.AboutComponent),
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
+  { path: '**', component: Error404Component },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
- 
+export class AppRoutingModule {}

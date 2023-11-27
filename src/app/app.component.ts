@@ -9,13 +9,7 @@ import { INote } from './model/INote';
 export class AppComponent {
   title = 'Notea';
 
-  public removingNote($event:INote){
-    console.log("Eliminando Nota");
-    console.log($event);
-  }
-
-  public editingNote($event:INote){
-    console.log("Editando Nota")
-    console.log($event);
+  public alerta(){
+    alert("Alerta Roja");
   }
 }
