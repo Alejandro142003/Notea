@@ -6,16 +6,17 @@ import {
   DocumentReference,
 } from '@angular/fire/compat/firestore';
 import { Title } from '@angular/platform-browser';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotesService {
-  private dbPath = '/notes';
+  private dbPath = this.ls.getUid();
   notesRef!: AngularFirestoreCollection<any>;
 
   public notes: INote[] = [];
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private ls: LoginService) {
     this.notesRef = db.collection(this.dbPath);
 
     //Cargar todas las notas del servidor
@@ -58,9 +59,11 @@ export class NotesService {
     this.notes = newNotes;
     return this.notesRef.doc(id).delete();
   }
+
   public getNotes(): INote[] {
     return this.notes;
   }
+
   public updateNote(note: INote): Promise<void> {
     let idtobeupdated: any;
     let data: any;

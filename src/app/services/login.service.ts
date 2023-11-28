@@ -20,6 +20,7 @@ export class LoginService {
         if (this.originalPath) {
           this.router.navigate([this.originalPath]);
           this.originalPath = '';
+          console.log(user);
         } else this.router.navigate(['']);
       } else {
         this.router.navigate(['/login']);
@@ -38,5 +39,9 @@ export class LoginService {
   }*/
   async signOut(): Promise<void> {
     return await this.authService.signOut();
+  }
+
+  getUid(): string {
+    return this.user.id;
   }
 }

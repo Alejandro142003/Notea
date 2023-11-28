@@ -1,6 +1,12 @@
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item"><strong>Título</strong></li>
+    <li class="list-group-item flex-grow-1">Descripción</li>
+    <li class="list-group-item">Editar</li>
+    <li class="list-group-item">Eliminar</li>
+</ul>
+
 <app-note *ngFor="let note of this.notesS.getNotes();let i=index;trackBy:trackByNotes" [note]="note"
     (editNote)="this.editingNote(note)" (removeNote)="this.removingNote(note)" appHighlight></app-note>
-
 
 <!-- EDIT MODAL-->
 <button id="launchModal" type="button" style="display:none" class="btn btn-primary" data-bs-toggle="modal"
